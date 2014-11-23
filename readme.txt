@@ -1,4 +1,4 @@
-SCRAPER
+Scraper
 a plugin for Craft
 by Michael Rog
 
