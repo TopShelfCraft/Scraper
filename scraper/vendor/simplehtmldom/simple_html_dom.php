@@ -34,7 +34,7 @@
  * @author S.C. Chen <me578022@gmail.com>
  * @author John Schlick
  * @author Rus Carroll
- * @version 1.5 ($Rev: 208 $)
+ * @version 1.5 ($Rev: 210 $)
  * @package PlaceLocalInclude
  * @subpackage simple_html_dom
  */
@@ -1220,7 +1220,7 @@ class simple_html_dom
 
 		if (empty($charset))
 		{
-			$el = $this->root->find('meta[http-equiv=Content-Type]',0);
+			$el = $this->root->find('meta[http-equiv=Content-Type]',0, true);
 			if (!empty($el))
 			{
 				$fullvalue = $el->content;
@@ -1228,7 +1228,7 @@ class simple_html_dom
 
 				if (!empty($fullvalue))
 				{
-					$success = preg_match('/charset=(.+)/', $fullvalue, $matches);
+					$success = preg_match('/charset=(.+)/i', $fullvalue, $matches);
 					if ($success)
 					{
 						$charset = $matches[1];
