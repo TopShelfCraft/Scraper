@@ -1,7 +1,16 @@
 <?php
 namespace Craft;
 
-// TODO: Add proper file header
+/**
+ * ScraperVariable
+ *
+ * @author    Top Shelf Craft <support@topshelfcraft.com>
+ * @copyright Copyright (c) 2016, Michael Rog
+ * @license   http://topshelfcraft.com/license
+ * @see       http://topshelfcraft.com
+ * @package   craft.plugins.scraper
+ * @since     1.0
+ */
 class ScraperVariable
 {
 

@@ -13,7 +13,14 @@ namespace Craft;
 require_once CRAFT_PLUGINS_PATH . 'scraper/vendor/simplehtmldom/simple_html_dom.php';
 
 /**
- * Scraper ScraperService
+ * Scraper_ScraperService
+ *
+ * @author    Top Shelf Craft <support@topshelfcraft.com>
+ * @copyright Copyright (c) 2016, Michael Rog
+ * @license   http://topshelfcraft.com/license
+ * @see       http://topshelfcraft.com
+ * @package   craft.plugins.scraper
+ * @since     1.0
  */
 class Scraper_ScraperService extends BaseApplicationComponent
 {
