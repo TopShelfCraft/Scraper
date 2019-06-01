@@ -1,55 +1,89 @@
 # Scraper
 
-_Easily fetch, slice, dice, and output HTML content from remote pages._
+_Easily fetch, slice, dice, and output HTML (or XML) content from anywhere._
 
-**Lovingly crafted by [Top Shelf Craft](https://topshelfcraft.com)**  
+**A [Top Shelf Craft](https://topshelfcraft.com) creation**  
 [Michael Rog](https://michaelrog.com), Proprietor
+
 
 * * *
 
 
-## tl;dr
+## Installation
 
-**Scraper** allows you to easily fetch HTML content from any URL, create a DOM with it, select elements by CSS selector, find and manipulate DOM nodes, and save or output them using the power of Twig templates.
+1. From your project directory, use Composer to require the plugin package:
 
+   ```
+   composer require topshelfcraft/scraper
+   ```
+
+2. In the Control Panel, go to Settings → Plugins and click the “Install” button for Scraper.
+
+3. There is no Step 3.
+
+_Scraper is also available for installation via the Craft CMS Plugin Store._
 
 ## Usage
 
-Use **Scraper** to query content from remote URLs, select it by HTML and CSS selector, and output it in your Craft templates.
+The Scraper plugin exposes a full-featured crawler object to your Twig template, allowing you to fetch, parse, and filter DOM elements from a remote source document.
 
-For example:
+### Instantiating a client
 
-    {% set acmeContent = craft.scraper.get("http://acmewidgets.com") %}
-    {% for widgets in acmeContent.find(".widget") %}
-	        <div>{{ widget.innerText }}</div>
-    {% endfor %}
+When invoking the plugin, you can choose whether to use SimpleHtmlDom or Symfony components to instantiate your crawler:
 
-or...
+```twig
+{% set crawler = craft.scraper.using('symfony').get('https://zombo.com') %}
+```
+```twig
+{% set crawler = craft.scraper.using('simplehtmldom').get('https://zombo.com') %}
+```
 
-    {% set google = craft.scraper.get("http://google.com") %}
-    {% for link in google.find("a") %}
-        <li>{{ link.attr.href }}</li>
-    {% endfor% }
+I generally recommend using the Symfony components; they are more powerful and resilient to malformed source code. (The SimpleHtmlDom crawler is included to provide backwards compatibility with Craft 2 projects.)
+
+### Using the Symfony client
+
+When you opt for Symfony components, the `get` method instantiates a full [BrowserKit](https://symfony.com/components/BrowserKit) client, giving you access to all the [BrowserKit](https://symfony.com/components/BrowserKit) and [DomCrawler](https://symfony.com/doc/current/components/dom_crawler.html) methods.
+
+You can iterate over the DOM elements from your source document like this:
+
+```twig
+{% for node in crawler.filter('h2 > a') %}
+    {{ node.text() }}
+{% endfor %}
+```
+
+### Using the SimpleHtmlDom client
+
+When you opt for the SimpleHtmlDom crawler, the `get` method instantiates a [SimpleHtmlDom](https://simplehtmldom.sourceforge.io/) client, giving you access to all the [SimpleHtmlDom methods](https://simplehtmldom.sourceforge.io/manual.htm).
+
+You can iterate over the DOM elements from your source document like this:
+
+```twig
+{% for node in crawler.find('h1') %}
+    {{ node.innertext() }}
+{% endfor %}
+```
+
+### This is great! I still have questions.
+
+Ask a question on [StackExchange](http://craftcms.stackexchange.com/), and ping me with a URL via email or Discord.
 
 
 ### What are the system requirements?
 
-Craft 2.5+ and PHP 5.4+
+Craft 3.0+ and PHP 7.0+
 
 
 ### I found a bug.
 
-Nah...
-
-
-### I triple-checked. It's a bug.
-
-Well, alright. Please open a GitHub Issue, submit a PR to the `dev` branch, or just email me to let me know.
+Please open a GitHub Issue, submit a PR to the `3.x.dev` branch, or just email me.
 
 
 * * *
 
 #### Contributors:
 
- - Plugin development: [Michael Rog](http://michaelrog.com) / @michaelrog
- - [Simple HTML DOM](http://simplehtmldom.sourceforge.net/): created by S. C. Chen
+  - Plugin development: [Michael Rog](http://michaelrog.com) / @michaelrog
+  - Includes the ["Simple HTML DOM"](http://simplehtmldom.sourceforge.net/) library, created by S. C. Chen
+  - Includes the Symfony [DomCrawler](https://symfony.com/doc/current/components/dom_crawler.html) via [Goutte](https://github.com/FriendsOfPHP/Goutte), created by S. C. Chen
+

@@ -1,0 +1,57 @@
+{
+	"name": "topshelfcraft/scraper",
+	"type": "craft-plugin",
+	"description": "Easily fetch, parse, and rejigger HTML or XML from anywhere.",
+	"version": "3.0.0-beta.1",
+	"keywords": [
+		"craft",
+		"cms",
+		"craftcms",
+		"plugin",
+		"scraper",
+		"simplehtmldom",
+		"dom",
+		"fetch",
+		"html",
+		"remote",
+		"external",
+		"parse"
+	],
+	"license": "proprietary",
+	"homepage": "https://topshelfcraft.com",
+	"authors": [
+		{
+			"name": "Top Shelf Craft (Michael Rog)",
+			"homepage": "https://topshelfcraft.com"
+		}
+	],
+	"support": {
+		"email": "support@topshelfcraft.com",
+		"issues": "https://github.com/TopShelfCraft/Scraper/issues",
+		"source": "https://github.com/TopShelfCraft/Scraper",
+		"docs": "https://github.com/TopShelfCraft/Scraper"
+	},
+	"require": {
+		"php": ">=7",
+		"craftcms/cms": "^3.0",
+		"topshelfcraft/ranger": "^3.0",
+		"fabpot/goutte": "^3.2"
+	},
+	"autoload": {
+		"psr-4": {
+			"topshelfcraft\\scraper\\": "src/"
+		}
+	},
+	"extra": {
+		"name": "Scraper",
+		"handle": "scraper",
+		"schemaVersion": "0.0.0.0",
+		"hasSettings": false,
+		"hasCpSection": false,
+		"changelogUrl": "https://raw.githubusercontent.com/topshelfcraft/scraper/3.x/CHANGELOG.md",
+		"class": "topshelfcraft\\scraper\\Scraper",
+		"components": {
+			"scraper": "topshelfcraft\\scraper\\services\\Scraper"
+		}
+	}
+}
