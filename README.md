@@ -86,4 +86,5 @@ Please open a GitHub Issue, submit a PR to the `3.x.dev` branch, or just email m
   - Plugin development: [Michael Rog](http://michaelrog.com) / @michaelrog
   - Includes the ["Simple HTML DOM"](http://simplehtmldom.sourceforge.net/) library, created by S. C. Chen
   - Includes the Symfony [DomCrawler](https://symfony.com/doc/current/components/dom_crawler.html) via [Goutte](https://github.com/FriendsOfPHP/Goutte), created by [Fabian Potencier](http://fabien.potencier.org/) / @fabpot
+  - Icon: ["Upright vacuum cleaner"](https://thenounproject.com/creaticca/collection/vacuum-cleaners-outline-collection/?i=960548) by [Creaticca Creative Agency](https://thenounproject.com/creaticca/), via [The Noun Project](https://thenounproject.com/)
 

@@ -1,5 +1,9 @@
 # Scraper Changelog
 
+## 3.0.0-beta.3 - 2019-06-20
+
+- Added plugin icon.
+
 ## 3.0.0-beta.2 - 2019-06-20
 
 ## Changed

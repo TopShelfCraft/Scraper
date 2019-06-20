@@ -2,7 +2,7 @@
 	"name": "topshelfcraft/scraper",
 	"type": "craft-plugin",
 	"description": "Easily fetch, parse, and rejigger HTML or XML from anywhere.",
-	"version": "3.0.0-beta.2",
+	"version": "3.0.0-beta.3",
 	"keywords": [
 		"craft",
 		"cms",
