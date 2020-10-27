@@ -1,9 +1,7 @@
 <?php
-namespace topshelfcraft\scraper\lib;
+namespace topshelfcraft\scraper\lib\SimpleHtmlDom;
 
-use topshelfcraft\scraper\lib\SimpleHtmlDom\simple_html_dom;
-
-require 'simple_html_dom.php';
+require '_functions.php';
 
 class SimpleHtmlDom {
 

@@ -2,7 +2,7 @@
 namespace topshelfcraft\scraper\clients;
 
 use topshelfcraft\scraper\lib\SimpleHtmlDom\simple_html_dom;
-use topshelfcraft\scraper\lib\SimpleHtmlDom;
+use topshelfcraft\scraper\lib\SimpleHtmlDom\SimpleHtmlDom;
 
 /**
  * @author Michael Rog <michael@michaelrog.com>
