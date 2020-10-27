@@ -1,6 +1,14 @@
 # Scraper Changelog
 
+## 3.0.0 - 2020-10-26
+
+### Changed
+
+- Refactored SimpleHtmlDom library classes to satisfy PSR-4.
+
 ## 3.0.0-beta.3 - 2019-06-20
+
+### Added
 
 - Added plugin icon.
 
