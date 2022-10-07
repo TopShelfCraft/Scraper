@@ -29,7 +29,7 @@
 		"docs": "https://github.com/TopShelfCraft/Scraper"
 	},
 	"require": {
-		"craftcms/cms": "^4.0",
+		"craftcms/cms": "^4.2.1",
 		"topshelfcraft/base": "^4.0.1",
 		"fabpot/goutte": "^v4.0.2"
 	},
