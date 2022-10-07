@@ -1,5 +1,5 @@
 <?php
-namespace topshelfcraft\scraper\lib\SimpleHtmlDom;
+namespace TopShelfCraft\Scraper\lib\SimpleHtmlDom;
 
 class simple_html_dom
 {

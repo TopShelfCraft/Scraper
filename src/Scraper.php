@@ -1,38 +1,36 @@
 <?php
-namespace topshelfcraft\scraper;
+namespace TopShelfCraft\Scraper;
 
 use Craft;
-use craft\base\Plugin as BasePlugin;
+use TopShelfCraft\base\Plugin;
 use craft\web\twig\variables\CraftVariable;
-use topshelfcraft\scraper\services\Scraper as ScraperService;
-use topshelfcraft\scraper\twigextensions\ScraperTwigExtension;
-use topshelfcraft\ranger\Plugin;
+use TopShelfCraft\Scraper\services\Scraper as ScraperService;
+use TopShelfCraft\Scraper\view\TwigExtension;
 use yii\base\Event;
 
 /**
  * @author Michael Rog <michael@michaelrog.com>
- * @package Scraper
- * @since 3.0.0
+ * @link https://topshelfcraft.com
+ * @copyright Copyright 2022, Top Shelf Craft (Michael Rog)
  *
  * @property ScraperService $scraper
  */
-class Scraper extends BasePlugin
+class Scraper extends Plugin
 {
 
-	/**
-	 * @var Scraper $plugin
-	 */
-	public static $plugin;
+	public ?string $changelogUrl = "https://raw.githubusercontent.com/TopShelfCraft/Scraper/master/CHANGELOG.md";
+	public bool $hasCpSection = false;
+	public bool $hasCpSettings = false;
+	public string $schemaVersion = "0.0.0.0";
 
-	/**
-	 * Initializes the plugin.
-	 */
 	public function init()
 	{
 
+		$this->setComponents([
+			'scraper' => ScraperService::class,
+		]);
+
 		parent::init();
-		self::$plugin = $this;
-		Plugin::watch($this);
 
 		// For folks coming from Craft 2.x, we'll provide our methods under a `{{ craft.scraper }}` variable.
 		Event::on(
@@ -41,12 +39,12 @@ class Scraper extends BasePlugin
 			function (Event $event) {
 				/** @var CraftVariable $variable **/
 				$variable = $event->sender;
-				$variable->set('scraper', Scraper::$plugin->scraper);
+				$variable->set('scraper', Scraper::getInstance()->scraper);
 			}
 		);
 
 		// Then, starting in Craft 3.x, we also provide a `{{ scraper }}` global variable.
-		Craft::$app->getView()->registerTwigExtension(new ScraperTwigExtension());
+		Craft::$app->getView()->registerTwigExtension(new TwigExtension());
 
 	}
 

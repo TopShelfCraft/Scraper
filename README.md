@@ -66,17 +66,17 @@ You can iterate over the DOM elements from your source document like this:
 
 ### This is great! I still have questions.
 
-Ask a question on [StackExchange](http://craftcms.stackexchange.com/), and ping me with a URL via email or Discord.
+Ask a question on [StackExchange](https://craftcms.stackexchange.com/), and ping me with a URL via email or Discord.
 
 
 ### What are the system requirements?
 
-Craft 3.0+ and PHP 7.0+
+Craft 4.0+
 
 
 ### I found a bug.
 
-Please open a GitHub Issue, submit a PR to the `3.x.dev` branch, or just email me.
+Please open a GitHub Issue, submit a PR to the `4.x.dev` branch, or just email me.
 
 
 * * *

@@ -1,23 +1,19 @@
 <?php
-namespace topshelfcraft\scraper\clients;
+namespace TopShelfCraft\Scraper\clients;
 
-use topshelfcraft\scraper\lib\SimpleHtmlDom\simple_html_dom;
-use topshelfcraft\scraper\lib\SimpleHtmlDom\SimpleHtmlDom;
+use TopShelfCraft\Scraper\lib\SimpleHtmlDom\simple_html_dom;
+use TopShelfCraft\Scraper\lib\SimpleHtmlDom\SimpleHtmlDom;
 
 /**
- * @author Michael Rog <michael@michaelrog.com>
- * @package Scraper
- * @since 3.0.0
+ * @deprecated
  */
 class SimpleHtmlDomClient extends BaseClient
 {
 
 	/**
-	 * @param $url
-	 *
 	 * @return simple_html_dom The SimpleHTMLDom crawler, with the remote source loaded
 	 */
-	public function get($url)
+	public function get(string $url): simple_html_dom
 	{
 		$contents = $this->getGuzzleClient()->get($url)->getBody()->getContents();
 		return SimpleHtmlDom::str_get_html($contents);

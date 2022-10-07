@@ -2,7 +2,7 @@
 	"name": "topshelfcraft/scraper",
 	"type": "craft-plugin",
 	"description": "Easily fetch, parse, and rejigger HTML or XML from anywhere.",
-	"version": "3.0.0",
+	"version": "4.0.0",
 	"keywords": [
 		"craft",
 		"cms",
@@ -18,7 +18,6 @@
 		"parse"
 	],
 	"license": "proprietary",
-	"homepage": "https://topshelfcraft.com",
 	"authors": [
 		{
 			"name": "Top Shelf Craft (Michael Rog)",
@@ -26,32 +25,22 @@
 		}
 	],
 	"support": {
-		"email": "support@topshelfcraft.com",
 		"issues": "https://github.com/TopShelfCraft/Scraper/issues",
-		"source": "https://github.com/TopShelfCraft/Scraper",
 		"docs": "https://github.com/TopShelfCraft/Scraper"
 	},
 	"require": {
-		"php": ">=7",
-		"craftcms/cms": "^3.0",
-		"topshelfcraft/ranger": "^3.0",
-		"fabpot/goutte": "^3.2"
+		"craftcms/cms": "^4.0",
+		"topshelfcraft/base": "^4.0.1",
+		"fabpot/goutte": "^v4.0.2"
 	},
 	"autoload": {
 		"psr-4": {
-			"topshelfcraft\\scraper\\": "src/"
+			"TopShelfCraft\\Scraper\\": "src/"
 		}
 	},
 	"extra": {
 		"name": "Scraper",
 		"handle": "scraper",
-		"schemaVersion": "0.0.0.0",
-		"hasSettings": false,
-		"hasCpSection": false,
-		"changelogUrl": "https://raw.githubusercontent.com/topshelfcraft/scraper/3.x/CHANGELOG.md",
-		"class": "topshelfcraft\\scraper\\Scraper",
-		"components": {
-			"scraper": "topshelfcraft\\scraper\\services\\Scraper"
-		}
+		"class": "TopShelfCraft\\Scraper\\Scraper"
 	}
 }

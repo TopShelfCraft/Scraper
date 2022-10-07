@@ -1,26 +1,18 @@
 <?php
-namespace topshelfcraft\scraper\clients;
+namespace TopShelfCraft\Scraper\clients;
 
 use Goutte\Client;
 use Symfony\Component\DomCrawler\Crawler;
 
-/**
- * @author Michael Rog <michael@michaelrog.com>
- * @package Scraper
- * @since 3.0.0
- */
 class GoutteClient extends BaseClient
 {
 
 	/**
-	 * @param $url
-	 *
-	 * @return Crawler The BrowserKit crawler, with the remote source loaded
+	 * @return Crawler The BrowserKit crawler, with the remote source loaded.
 	 */
-	public function get($url)
+	public function get(string $url): Crawler
 	{
 		$goutte = new Client();
-		$goutte->setClient($this->getGuzzleClient());
 		return $goutte->request('GET', $url);
 	}
 

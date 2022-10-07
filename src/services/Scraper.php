@@ -1,53 +1,43 @@
 <?php
-namespace topshelfcraft\scraper\services;
+namespace TopShelfCraft\Scraper\services;
 
-use topshelfcraft\scraper\clients\BaseClient;
-use topshelfcraft\scraper\clients\GoutteClient;
-use topshelfcraft\scraper\clients\SimpleHtmlDomClient;
+use TopShelfCraft\Scraper\clients\BaseClient;
+use TopShelfCraft\Scraper\clients\GoutteClient;
+use TopShelfCraft\Scraper\clients\SimpleHtmlDomClient;
+use TopShelfCraft\Scraper\lib\SimpleHtmlDom\simple_html_dom;
 use yii\base\Component;
 use yii\base\InvalidConfigException;
 
-/**
- * @author Michael Rog <michael@michaelrog.com>
- * @package Scraper
- * @since 3.0.0
- */
 class Scraper extends Component
 {
+
+	const SIMPLE_HTML_DOM = 'simplehtmldom';
+	const SYMFONY = 'symfony';
 
 	/**
 	 * Returns a SimpleHtmlDom crawler object with the given URL loaded.
 	 * (Provided for backwards compatibility with Scraper 1.x)
-	 *
-	 * @param $url
-	 *
-	 * @return \simplehtmldom_1_5\simple_html_dom
-	 *
-	 * @throws InvalidConfigException
 	 */
-	public function get($url)
+	public function get(string $url): simple_html_dom
 	{
-		return $this->using('simplehtmldom')->get($url);
+		return $this->using(self::SIMPLE_HTML_DOM)->get($url);
 	}
 
 	/**
-	 * @param string $client
-	 * @param array $guzzleOptions
+	 * Returns a crawler object using the specified client library.
 	 *
-	 * @return BaseClient
-	 *
-	 * @throws \yii\base\InvalidConfigException
+	 * @throws InvalidConfigException
 	 */
-	public function using(string $client, $guzzleOptions = [])
+	public function using(string $client, array $guzzleOptions = []): BaseClient
 	{
 
 		$client = strtolower($client);
 
-		if ($client === 'simplehtmldom')
+		if ($client === self::SIMPLE_HTML_DOM)
 		{
 			$client = new SimpleHtmlDomClient();
 		}
-		elseif ($client === 'symfony')
+		elseif ($client === self::SYMFONY)
 		{
 			$client = new GoutteClient();
 		}

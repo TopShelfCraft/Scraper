@@ -1,39 +1,22 @@
 <?php
-namespace topshelfcraft\scraper\clients;
+namespace TopShelfCraft\Scraper\clients;
 
 use craft\base\Component;
 use GuzzleHttp\Client;
 use yii\base\InvalidConfigException;
 
-/**
- * @author Michael Rog <michael@michaelrog.com>
- * @package Scraper
- * @since 3.0.0
- */
 abstract class BaseClient extends Component
 {
-
-	/*
-	 * Private properties
-	 */
 
 	/**
 	 * @var Client The Guzzle client which the  be used to fetch remote content
 	 */
-	protected $_guzzleClient;
-
-	/*
-	 * Public methods
-	 */
+	protected Client $_guzzleClient;
 
 	/**
-	 * @param array|Client $client
-	 *
-	 * @return $this
-	 *
 	 * @throws InvalidConfigException
 	 */
-	public function setGuzzleClient($client = [])
+	public function setGuzzleClient(Client|array $client = []): self
 	{
 
 		if (is_array($client))
@@ -53,20 +36,11 @@ abstract class BaseClient extends Component
 	}
 
 	/**
-	 * Returns a crawler object with the remote source loaded
-	 *
-	 * @param $url
+	 * Returns a crawler object with the remote source loaded.
 	 */
-	public abstract function get($url);
+	public abstract function get(string $url);
 
-	/*
-	 * Protected methods
-	 */
-
-	/**
-	 * @return Client
-	 */
-	protected function getGuzzleClient()
+	protected function getGuzzleClient(): Client
 	{
 
 		if (!isset($this->_guzzleClient))
