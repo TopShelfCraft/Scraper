@@ -71,7 +71,7 @@ Ask a question on [StackExchange](https://craftcms.stackexchange.com/), and ping
 
 ### What are the system requirements?
 
-Craft 4.0+
+Craft 4.2.1+
 
 
 ### I found a bug.
